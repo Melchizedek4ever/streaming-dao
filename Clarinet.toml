@@ -1,72 +1,104 @@
 [project]
-name = "executor-dao"
+name = 'executor-dao'
+description = ''
+authors = []
+telemetry = false
+cache_dir = '.cache'
 requirements = []
-costs_version = 2
-
 [contracts.ede000-governance-token]
-path = "contracts/extensions/ede000-governance-token.clar"
-depends_on = ["executor-dao", "governance-token-trait", "sip010-ft-trait"]
+path = 'contracts/extensions/ede000-governance-token.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.ede001-proposal-voting]
-path = "contracts/extensions/ede001-proposal-voting.clar"
-depends_on = ["executor-dao", "proposal-trait", "extension-trait", "ede000-governance-token"]
+path = 'contracts/extensions/ede001-proposal-voting.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.ede002-proposal-submission]
-path = "contracts/extensions/ede002-proposal-submission.clar"
-depends_on = ["executor-dao", "extension-trait", "ede001-proposal-voting"]
+path = 'contracts/extensions/ede002-proposal-submission.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.ede003-emergency-proposals]
-path = "contracts/extensions/ede003-emergency-proposals.clar"
-depends_on = ["executor-dao", "extension-trait", "ede001-proposal-voting"]
+path = 'contracts/extensions/ede003-emergency-proposals.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.ede004-emergency-execute]
-path = "contracts/extensions/ede004-emergency-execute.clar"
-depends_on = ["executor-dao", "extension-trait", "ede001-proposal-voting"]
+path = 'contracts/extensions/ede004-emergency-execute.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.ede005-dev-fund]
-path = "contracts/extensions/ede005-dev-fund.clar"
-depends_on = ["executor-dao", "extension-trait", "ede000-governance-token"]
+path = 'contracts/extensions/ede005-dev-fund.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.edp000-bootstrap]
-path = "contracts/proposals/edp000-bootstrap.clar"
-depends_on = ["executor-dao", "proposal-trait", "extension-trait", "ede000-governance-token", "ede001-proposal-voting", "ede002-proposal-submission", "ede003-emergency-proposals", "ede004-emergency-execute"]
+path = 'contracts/proposals/edp000-bootstrap.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.edp001-dev-fund]
-path = "contracts/proposals/edp001-dev-fund.clar"
-depends_on = ["ede000-governance-token", "executor-dao"]
+path = 'contracts/proposals/edp001-dev-fund.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.edp002-kill-emergency-execute]
-path = "contracts/proposals/edp002-kill-emergency-execute.clar"
-depends_on = ["ede004-emergency-execute", "executor-dao"]
+path = 'contracts/proposals/edp002-kill-emergency-execute.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.edp003-whitelist-escrow-nft]
-path = "contracts/proposals/edp003-whitelist-escrow-nft.clar"
-depends_on = ["proposal-trait", "nft-escrow"]
+path = 'contracts/proposals/edp003-whitelist-escrow-nft.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.executor-dao]
-path = "contracts/executor-dao.clar"
-depends_on = ["proposal-trait", "extension-trait"]
+path = 'contracts/executor-dao.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.extension-trait]
-path = "contracts/traits/extension-trait.clar"
-depends_on = []
+path = 'contracts/traits/extension-trait.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.governance-token-trait]
-path = "contracts/traits/governance-token-trait.clar"
-depends_on = []
+path = 'contracts/traits/governance-token-trait.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.nft-escrow]
-path = "contracts/external/nft-escrow.clar"
-depends_on = ["ownable-trait"]
+path = 'contracts/external/nft-escrow.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.ownable-trait]
-path = "contracts/traits/ownable-trait.clar"
-depends_on = []
+path = 'contracts/traits/ownable-trait.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.proposal-trait]
-path = "contracts/traits/proposal-trait.clar"
-depends_on = []
+path = 'contracts/traits/proposal-trait.clar'
+clarity_version = 1
+epoch = 2.05
 
 [contracts.sip010-ft-trait]
-path = "contracts/traits/sip010-ft-trait.clar"
-depends_on = []
+path = 'contracts/traits/sip010-ft-trait.clar'
+clarity_version = 1
+epoch = 2.05
+
+[contracts.streamer-protocol]
+path = 'contracts/streamer-protocol.clar'
+clarity_version = 3
+epoch = 3.0
+[repl.analysis]
+passes = []
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
