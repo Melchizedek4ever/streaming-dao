@@ -95,6 +95,11 @@ path = 'contracts/stream-token.clar'
 clarity_version = 3
 epoch = 3.0
 
+[contracts.streamer-bootstrap]
+path = 'contracts/streamer-bootstrap.clar'
+clarity_version = 3
+epoch = 3.0
+
 [contracts.streamer-protocol]
 path = 'contracts/streamer-protocol.clar'
 clarity_version = 3
