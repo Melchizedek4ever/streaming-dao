@@ -38,6 +38,11 @@
     (timeframe (tuple (start-block uint) (stop-block uint)))
     (payment-per-block uint)
   )
+  (begin
+    ;; Perform authorization check
+    (try! (is-dao-or-extension))
+    
+    ;; Proceed with stream creation if authorized
   (let (
     (stream {
       sender: contract-caller,
@@ -67,6 +72,8 @@
     (stream-id uint)
     (amount uint)
   )
+  ;; Perform authorization check
+    (try! (is-dao-or-extension))
   (let (
     (stream (unwrap! (map-get? streams stream-id) ERR_INVALID_STREAM_ID))
   )
@@ -130,6 +137,8 @@
 (define-public (withdraw
     (stream-id uint)
   )
+  ;; Perform authorization check
+    (try! (is-dao-or-extension))
   (let (
     (stream (unwrap! (map-get? streams stream-id) ERR_INVALID_STREAM_ID))
     (balance (balance-of stream-id contract-caller))
@@ -147,6 +156,8 @@
 (define-public (refund
     (stream-id uint)
   )
+  ;; Perform authorization check
+    (try! (is-dao-or-extension))
   (let (
     (stream (unwrap! (map-get? streams stream-id) ERR_INVALID_STREAM_ID))
     (balance (balance-of stream-id (get sender stream)))
@@ -192,6 +203,8 @@
     (signer principal)
     (signature (buff 65))
   )
+  ;; Perform authorization check
+    (try! (is-dao-or-extension))
   (let (
     (stream (unwrap! (map-get? streams stream-id) ERR_INVALID_STREAM_ID))  
   )
